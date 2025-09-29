@@ -1,0 +1,12 @@
+[project]
+name = "je-analyzer"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "click>=8.3.0",
+    "openpyxl>=3.1.5",
+    "pandas>=2.3.2",
+    "python-calamine>=0.5.3",
+]
