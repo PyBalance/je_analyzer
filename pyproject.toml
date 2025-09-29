@@ -44,9 +44,9 @@ dev = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/yourusername/je-analyzer"
-Repository = "https://github.com/yourusername/je-analyzer"
-Issues = "https://github.com/yourusername/je-analyzer/issues"
+Homepage = "https://github.com/PyBalance/je-analyzer"
+Repository = "https://github.com/PyBalance/je-analyzer"
+Issues = "https://github.com/PyBalance/je-analyzer/issues"
 
 [project.scripts]
 je-analyzer = "je_analyzer:cli"

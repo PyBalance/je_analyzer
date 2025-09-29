@@ -6,13 +6,13 @@
 
 ```bash
 # 从 GitHub 运行
-uvx run git+https://github.com/yourusername/je-analyzer --help
+uvx run git+https://github.com/PyBalance/je-analyzer --help
 
 # 或者从本地路径运行
 uvx run /path/to/je-analyzer --help
 
 # 实际使用示例
-uvx run git+https://github.com/yourusername/je-analyzer -a 1002 -s 2024-01-01 -e 2024-12-31 -b "示例账套" data.xlsx overview
+uvx run git+https://github.com/PyBalance/je-analyzer -a 1002 -s 2024-01-01 -e 2024-12-31 -b "示例账套" data.xlsx overview
 ```
 
 ## 使用 uv 安装
@@ -21,17 +21,17 @@ uvx run git+https://github.com/yourusername/je-analyzer -a 1002 -s 2024-01-01 -e
 
 ```bash
 # 安装最新版本
-uv pip install git+https://github.com/yourusername/je-analyzer
+uv pip install git+https://github.com/PyBalance/je-analyzer
 
 # 或者安装特定版本/分支
-uv pip install git+https://github.com/yourusername/je-analyzer@main
+uv pip install git+https://github.com/PyBalance/je-analyzer@main
 ```
 
 ### 从本地源码安装
 
 ```bash
 # 克隆仓库
-git clone https://github.com/yourusername/je-analyzer.git
+git clone https://github.com/PyBalance/je-analyzer.git
 cd je-analyzer
 
 # 安装到当前环境

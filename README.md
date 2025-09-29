@@ -19,13 +19,13 @@
 
 ```bash
 # 从 GitHub 运行
-uvx run git+https://github.com/yourusername/je-analyzer --help
+uvx run git+https://github.com/PyBalance/je-analyzer --help
 
 # 从本地源码运行
 uvx run /path/to/je-analyzer --help
 
 # 实际使用示例
-uvx run git+https://github.com/yourusername/je-analyzer -a 1002 -s 2024-01-01 -e 2024-12-31 -b "示例账套" data.xlsx overview
+uvx run git+https://github.com/PyBalance/je-analyzer -a 1002 -s 2024-01-01 -e 2024-12-31 -b "示例账套" data.xlsx overview
 ```
 
 ### 传统安装方式
@@ -88,7 +88,7 @@ uv run python je_analyzer.py -a <CODE> -s <START> -e <END> -b <BOOK> <input_file
 
 #### 基本概览
 ```bash
-uvx run git+https://github.com/yourusername/je-analyzer -a 1002 -s 2024-01-01 -e 2024-12-31 -b "示例账套" data.xlsx overview
+uvx run git+https://github.com/PyBalance/je-analyzer -a 1002 -s 2024-01-01 -e 2024-12-31 -b "示例账套" data.xlsx overview
 ```
 
 **输出示例**:
@@ -127,12 +127,12 @@ uvx run git+https://github.com/yourusername/je-analyzer -a 1002 -s 2024-01-01 -e
 
 #### 精确匹配科目编码
 ```bash
-uvx run git+https://github.com/yourusername/je-analyzer -a 1002 --exact-match -s 2024-01-01 -e 2024-12-31 -b "示例账套" data.xlsx overview
+uvx run git+https://github.com/PyBalance/je-analyzer -a 1002 --exact-match -s 2024-01-01 -e 2024-12-31 -b "示例账套" data.xlsx overview
 ```
 
 #### 分析全部账套
 ```bash
-uvx run git+https://github.com/yourusername/je-analyzer -a 1002 -s 2024-01-01 -e 2024-12-31 -b "all" data.xlsx overview
+uvx run git+https://github.com/PyBalance/je-analyzer -a 1002 -s 2024-01-01 -e 2024-12-31 -b "all" data.xlsx overview
 ```
 
 ### 2. get - 获取原始数据
@@ -141,7 +141,7 @@ uvx run git+https://github.com/yourusername/je-analyzer -a 1002 -s 2024-01-01 -e
 
 **语法**:
 ```bash
-uvx run git+https://github.com/yourusername/je-analyzer -a <CODE> -s <START> -e <END> -b <BOOK> <input_file> get [OPTIONS]
+uvx run git+https://github.com/PyBalance/je-analyzer -a <CODE> -s <START> -e <END> -b <BOOK> <input_file> get [OPTIONS]
 ```
 
 **get 选项**:
@@ -161,22 +161,22 @@ uvx run git+https://github.com/yourusername/je-analyzer -a <CODE> -s <START> -e 
 
 #### 获取 Top 5 条记录
 ```bash
-uvx run git+https://github.com/yourusername/je-analyzer -a 6601 -s 2024-01-01 -e 2024-12-31 -b "示例账套" data.xlsx get --top 5
+uvx run git+https://github.com/PyBalance/je-analyzer -a 6601 -s 2024-01-01 -e 2024-12-31 -b "示例账套" data.xlsx get --top 5
 ```
 
 #### 按借方金额排序
 ```bash
-uvx run git+https://github.com/yourusername/je-analyzer -a 6601 -s 2024-01-01 -e 2024-12-31 -b "示例账套" data.xlsx get --top 3 --top-type debit
+uvx run git+https://github.com/PyBalance/je-analyzer -a 6601 -s 2024-01-01 -e 2024-12-31 -b "示例账套" data.xlsx get --top 3 --top-type debit
 ```
 
 #### 自定义输出列
 ```bash
-uvx run git+https://github.com/yourusername/je-analyzer -a 6601 -s 2024-01-01 -e 2024-12-31 -b "示例账套" data.xlsx get --top 3 --columns "日期,摘要,借方金额,贷方金额"
+uvx run git+https://github.com/PyBalance/je-analyzer -a 6601 -s 2024-01-01 -e 2024-12-31 -b "示例账套" data.xlsx get --top 3 --columns "日期,摘要,借方金额,贷方金额"
 ```
 
 #### 使用高级查询
 ```bash
-uvx run git+https://github.com/yourusername/je-analyzer -a 1002 -q "借方金额 != 0" -s 2024-01-01 -e 2024-12-31 -b "示例账套" data.xlsx get --top 5
+uvx run git+https://github.com/PyBalance/je-analyzer -a 1002 -q "借方金额 != 0" -s 2024-01-01 -e 2024-12-31 -b "示例账套" data.xlsx get --top 5
 ```
 
 ## 查询语法
@@ -276,10 +276,10 @@ uvx run git+https://github.com/yourusername/je-analyzer -a 1002 -q "借方金额
 
 ```bash
 # 错误格式
-uvx run git+https://github.com/yourusername/je-analyzer data.xlsx overview -a "1002"
+uvx run git+https://github.com/PyBalance/je-analyzer data.xlsx overview -a "1002"
 
 # 正确格式
-uvx run git+https://github.com/yourusername/je-analyzer -a "1002" data.xlsx overview
+uvx run git+https://github.com/PyBalance/je-analyzer -a "1002" data.xlsx overview
 ```
 
 ### 2. 账套名称不存在

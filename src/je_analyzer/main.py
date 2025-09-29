@@ -479,7 +479,7 @@ def cli(ctx, input_file, account_code, exact_match, start_date, end_date, accoun
 
     使用示例:
       # 从 GitHub 直接运行
-      uvx run git+https://github.com/yourusername/je-analyzer -a 1002 -s 2024-01-01 -e 2024-12-31 -b "示例账套" data.xlsx overview
+      uvx run git+https://github.com/PyBalance/je-analyzer -a 1002 -s 2024-01-01 -e 2024-12-31 -b "示例账套" data.xlsx overview
 
       # 从本地路径运行
       uvx /path/to/je-analyzer -a 1002 -s 2024-01-01 -e 2024-12-31 -b "示例账套" data.xlsx overview
