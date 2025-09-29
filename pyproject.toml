@@ -1,12 +1,70 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
 [project]
 name = "je-analyzer"
 version = "0.1.0"
-description = "Add your description here"
+description = "财务数据分析命令行工具 (Journal Entries Analyzer CLI)"
+authors = [
+    {name = "Your Name", email = "your.email@example.com"},
+]
+license = {text = "MIT"}
 readme = "README.md"
-requires-python = ">=3.13"
+requires-python = ">=3.8"
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Financial and Insurance Industry",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Office/Business :: Financial",
+    "Topic :: Scientific/Engineering :: Information Analysis",
+]
 dependencies = [
-    "click>=8.3.0",
-    "openpyxl>=3.1.5",
-    "pandas>=2.3.2",
-    "python-calamine>=0.5.3",
+    "click>=8.0.0",
+    "pandas>=1.3.0",
+    "openpyxl>=3.0.0",
+    "xlrd>=2.0.0",
+    "python-calamine>=0.2.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=6.0",
+    "black>=22.0",
+    "isort>=5.0",
+    "flake8>=4.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/yourusername/je-analyzer"
+Repository = "https://github.com/yourusername/je-analyzer"
+Issues = "https://github.com/yourusername/je-analyzer/issues"
+
+[project.scripts]
+je-analyzer = "je_analyzer:cli"
+
+[tool.uv]
+dev-dependencies = [
+    "pytest>=6.0",
+    "black>=22.0",
+    "isort>=5.0",
+    "flake8>=4.0",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/je_analyzer"]
+
+[tool.hatch.build.targets.sdist]
+include = [
+    "/src",
+    "/README.md",
+    "/LICENSE",
 ]

@@ -13,15 +13,37 @@
 
 ## 安装和运行
 
-使用 uv 进行包管理：
+### 推荐：使用 uvx 直接运行
+
+无需安装，直接运行：
 
 ```bash
-# 克隆项目
-git clone <repository-url>
-cd je_analyzer
+# 从 GitHub 运行
+uvx run git+https://github.com/yourusername/je-analyzer --help
 
-# 运行工具
-uv run python je_analyzer.py <input_file> <command> [options]
+# 从本地源码运行
+uvx run /path/to/je-analyzer --help
+
+# 实际使用示例
+uvx run git+https://github.com/yourusername/je-analyzer -a 1002 -s 2024-01-01 -e 2024-12-31 -b "示例账套" data.xlsx overview
+```
+
+### 传统安装方式
+
+```bash
+# 使用 uv 安装
+uv pip install git+https://github.com/yourusername/je-analyzer
+
+# 或者从源码安装
+git clone https://github.com/yourusername/je-analyzer.git
+cd je-analyzer
+uv pip install -e .
+```
+
+安装后可直接使用：
+
+```bash
+je-analyzer -a 1002 -s 2024-01-01 -e 2024-12-31 -b "示例账套" data.xlsx overview
 ```
 
 ## 使用方法
@@ -66,7 +88,7 @@ uv run python je_analyzer.py -a <CODE> -s <START> -e <END> -b <BOOK> <input_file
 
 #### 基本概览
 ```bash
-uv run python je_analyzer.py -a "1002" -s "2024-01-01" -e "2024-12-31" -b "示例账套" 删除模式序时账.xlsx overview
+uvx run git+https://github.com/yourusername/je-analyzer -a 1002 -s 2024-01-01 -e 2024-12-31 -b "示例账套" data.xlsx overview
 ```
 
 **输出示例**:
@@ -105,12 +127,12 @@ uv run python je_analyzer.py -a "1002" -s "2024-01-01" -e "2024-12-31" -b "示�
 
 #### 精确匹配科目编码
 ```bash
-uv run python je_analyzer.py -a "1002" --exact-match -s "2024-01-01" -e "2024-12-31" -b "示例账套" 删除模式序时账.xlsx overview
+uvx run git+https://github.com/yourusername/je-analyzer -a 1002 --exact-match -s 2024-01-01 -e 2024-12-31 -b "示例账套" data.xlsx overview
 ```
 
 #### 分析全部账套
 ```bash
-uv run python je_analyzer.py -a "1002" -s "2024-01-01" -e "2024-12-31" -b "all" 删除模式序时账.xlsx overview
+uvx run git+https://github.com/yourusername/je-analyzer -a 1002 -s 2024-01-01 -e 2024-12-31 -b "all" data.xlsx overview
 ```
 
 ### 2. get - 获取原始数据
@@ -119,7 +141,7 @@ uv run python je_analyzer.py -a "1002" -s "2024-01-01" -e "2024-12-31" -b "all" 
 
 **语法**:
 ```bash
-uv run python je_analyzer.py -a <CODE> -s <START> -e <END> -b <BOOK> <input_file> get [OPTIONS]
+uvx run git+https://github.com/yourusername/je-analyzer -a <CODE> -s <START> -e <END> -b <BOOK> <input_file> get [OPTIONS]
 ```
 
 **get 选项**:
@@ -139,22 +161,22 @@ uv run python je_analyzer.py -a <CODE> -s <START> -e <END> -b <BOOK> <input_file
 
 #### 获取 Top 5 条记录
 ```bash
-uv run python je_analyzer.py -a "6601" -s "2024-01-01" -e "2024-12-31" -b "示例账套" 删除模式序时账.xlsx get --top 5
+uvx run git+https://github.com/yourusername/je-analyzer -a 6601 -s 2024-01-01 -e 2024-12-31 -b "示例账套" data.xlsx get --top 5
 ```
 
 #### 按借方金额排序
 ```bash
-uv run python je_analyzer.py -a "6601" -s "2024-01-01" -e "2024-12-31" -b "示例账套" 删除模式序时账.xlsx get --top 3 --top-type debit
+uvx run git+https://github.com/yourusername/je-analyzer -a 6601 -s 2024-01-01 -e 2024-12-31 -b "示例账套" data.xlsx get --top 3 --top-type debit
 ```
 
 #### 自定义输出列
 ```bash
-uv run python je_analyzer.py -a "6601" -s "2024-01-01" -e "2024-12-31" -b "示例账套" 删除模式序时账.xlsx get --top 3 --columns "日期,摘要,借方金额,贷方金额"
+uvx run git+https://github.com/yourusername/je-analyzer -a 6601 -s 2024-01-01 -e 2024-12-31 -b "示例账套" data.xlsx get --top 3 --columns "日期,摘要,借方金额,贷方金额"
 ```
 
 #### 使用高级查询
 ```bash
-uv run python je_analyzer.py -a "1002" -q "借方金额 != 0" -s "2024-01-01" -e "2024-12-31" -b "示例账套" 删除模式序时账.xlsx get --top 5
+uvx run git+https://github.com/yourusername/je-analyzer -a 1002 -q "借方金额 != 0" -s 2024-01-01 -e 2024-12-31 -b "示例账套" data.xlsx get --top 5
 ```
 
 ## 查询语法
@@ -254,10 +276,10 @@ uv run python je_analyzer.py -a "1002" -q "借方金额 != 0" -s "2024-01-01" -e
 
 ```bash
 # 错误格式
-uv run python je_analyzer.py 删除模式序时账.xlsx overview -a "1002"
+uvx run git+https://github.com/yourusername/je-analyzer data.xlsx overview -a "1002"
 
 # 正确格式
-uv run python je_analyzer.py -a "1002" 删除模式序时账.xlsx overview
+uvx run git+https://github.com/yourusername/je-analyzer -a "1002" data.xlsx overview
 ```
 
 ### 2. 账套名称不存在
@@ -276,12 +298,19 @@ uv run python je_analyzer.py -a "1002" 删除模式序时账.xlsx overview
 
 ```
 je_analyzer/
-├── je_analyzer.py          # 主程序文件
+├── src/
+│   └── je_analyzer/
+│       ├── __init__.py   # 包初始化文件
+│       ├── main.py      # 主程序文件
+│       └── __main__.py   # 模块入口点
 ├── dev/
 │   └── DESIGN.md          # 设计文档
 ├── test-data/
-│   └── 删除模式序时账.xlsx  # 测试数据文件
-└── README.md              # 本文档
+│   └── sample_data.xlsx  # 测试数据文件
+├── pyproject.toml        # 项目配置文件
+├── LICENSE               # 许可证文件
+├── README.md             # 文档
+└── INSTALL.md            # 安装指南
 ```
 
 ## 许可证
