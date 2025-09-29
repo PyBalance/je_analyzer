@@ -13,7 +13,20 @@
 
 ## 安装和运行
 
-### 推荐：使用 uvx 直接运行
+### 推荐：使用 uv tool 安装
+
+```bash
+# 安装到 uv 工具链
+uv tool install git+https://github.com/PyBalance/je-analyzer.git
+
+# 运行
+je-analyzer --help
+
+# 实际使用示例
+je-analyzer -a 1002 -s 2024-01-01 -e 2024-12-31 -b "示例账套" data.xlsx overview
+```
+
+### 备选方案：使用 uvx 直接运行
 
 无需安装，直接运行：
 
