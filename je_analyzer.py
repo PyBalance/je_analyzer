@@ -462,7 +462,7 @@ def format_overview_report(stats, word_freq):
 @click.option('-b', '--account-book', required=True,
               help='账套名称 (支持: "账套A", "账套A,账套B", "all")')
 @click.option('-q', '--query',
-              help='Pandas查询字符串，用于额外筛选 (例如: "借方金额 > 10000")')
+              help='Pandas查询字符串，用于额外筛选 (例如: "借方金额 != 0")')
 @click.pass_context
 def cli(ctx, input_file, account_code, exact_match, start_date, end_date, account_book, query):
     """
@@ -481,8 +481,8 @@ def cli(ctx, input_file, account_code, exact_match, start_date, end_date, accoun
       # 生成概览报告
       uv run python je_analyzer.py -a 1002 -s 2024-01-01 -e 2024-12-31 -b "示例账套" 删除模式序时账.xlsx overview
 
-      # 获取Top 10条记录
-      uv run python je_analyzer.py -a 6601 -s 2024-01-01 -e 2024-12-31 -b "示例账套" 删除模式序时账.xlsx get --top 10
+      # 获取借方金额不等于0的记录
+      uv run python je_analyzer.py -a 6601 -q "借方金额 != 0" -s 2024-01-01 -e 2024-12-31 -b "示例账套" 删除模式序时账.xlsx get --top 10
 
     INPUT_FILE: 包含会计分录数据的源文件路径 (.xlsx 或 .xls)
     """
