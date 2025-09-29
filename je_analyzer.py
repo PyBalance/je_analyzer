@@ -470,9 +470,19 @@ def cli(ctx, input_file, account_code, exact_match, start_date, end_date, accoun
 
     快速分析和筛选财务日记账数据，支持多种筛选条件和统计分析。
 
+    命令格式:
+      uv run python je_analyzer.py [OPTIONS] INPUT_FILE COMMAND [ARGS]...
+
+    子命令:
+      overview    生成财务数据分析概览报告，包含统计信息和词频分析
+      get         获取并输出筛选后的原始数据行
+
     使用示例:
-      uv run python je_analyzer.py data.xlsx overview -a 1002 -s 2024-01-01 -e 2024-12-31 -b "主账套"
-      uv run python je_analyzer.py data.xlsx get --top 10 -a 6601 -s 2024-01-01 -e 2024-12-31 -b "主账套"
+      # 生成概览报告
+      uv run python je_analyzer.py -a 1002 -s 2024-01-01 -e 2024-12-31 -b "示例账套" 删除模式序时账.xlsx overview
+
+      # 获取Top 10条记录
+      uv run python je_analyzer.py -a 6601 -s 2024-01-01 -e 2024-12-31 -b "示例账套" 删除模式序时账.xlsx get --top 10
 
     INPUT_FILE: 包含会计分录数据的源文件路径 (.xlsx 或 .xls)
     """
