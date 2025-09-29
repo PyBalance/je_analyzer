@@ -32,10 +32,10 @@ uvx run git+https://github.com/PyBalance/je-analyzer -a 1002 -s 2024-01-01 -e 20
 
 ```bash
 # 使用 uv 安装
-uv pip install git+https://github.com/yourusername/je-analyzer
+uv pip install git+https://github.com/PyBalance/je-analyzer
 
 # 或者从源码安装
-git clone https://github.com/yourusername/je-analyzer.git
+git clone https://github.com/PyBalance/je-analyzer.git
 cd je-analyzer
 uv pip install -e .
 ```
